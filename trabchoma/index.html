@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho Choma</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <section>
+        <div id="container">
+            <div id="infos">
+                <p>
+                    Nome:
+                    <input type="text" name="" id="nome">
+                </p>
+                <p>
+                    Duração em minutos:
+                    <input type="number" name=" " id="duracao">
+                </p>
+                <p>
+                    <select name="select1" id="selecao1">
+                        <option value="1">Inglês</option>
+                        <option value="2">Espanhol</option>
+                        <option value="3">Francês</option>
+                    </select>
+                </p>
+
+
+                <p id="radiosbuttons">
+                    
+                    <form id="opc-aula">
+                        <input type="radio" name="tipo-aula" id="opc-semanal" value="1" class="radios">
+                        <label for="semanal">Aula Semanal</label>
+                        <input type="radio" name="tipo-aula" id="aula-unica" value="2" class="radios">
+                        <label for="unica">Aula Única</label>
+                    </form>
+
+                </p>
+                <p>
+                    <button id="reservar">
+                        Reservar Aula
+                    </button>
+                </p>
+            </div> 
+        </div>
+    </section>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
