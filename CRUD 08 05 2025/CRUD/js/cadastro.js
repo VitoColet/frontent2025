@@ -1,7 +1,8 @@
 const botao = document.getElementById("btnCadastrar");
-const listaUsuario = [];
+//const listaUsuario = [];
 
 botao.addEventListener("click", function() {
+    const listaUsuario = JSON.parse(localStorage.getItem("usuarios")) || []
     const usuario = {
         usuario: document.getElementById("login").value,
         senha: document.getElementById("senha").value
@@ -10,7 +11,10 @@ botao.addEventListener("click", function() {
     listaUsuario.push(usuario);
     listaJson = JSON.stringify(listaUsuario);
     localStorage.setItem("usuarios", listaJson);
+    document.getElementById("login").value = '';
+    document.getElementById("senha").value = '';
     listar();
+    
 })
 
 function listar()
@@ -32,3 +36,33 @@ function listar()
     });
 }
 
+function editarUsuario(index)
+{
+
+    const usuariosCadastrados = JSON.parse(localStorage.getItem("usuarios") || []);
+
+    const objUsuario = usuariosCadastrados[index];
+    document.getElementById("login").value = `${objUsuario.usuario}`;
+    document.getElementById("senha").value = `${objUsuario.senha}`;
+    
+
+}
+
+function excluirUsuario(index)
+{
+
+    const usuariosCadastrados = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+
+    if (confirm("Quer Excluir?"))
+    {
+        usuariosCadastrados.splice(index, 1);
+        listaJson = JSON.stringify(usuariosCadastrados);
+        localStorage.setItem("usuarios", listaJson);   
+        listar();
+    }
+    
+    
+}
+
+listar();
